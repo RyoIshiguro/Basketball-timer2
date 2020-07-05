@@ -1,0 +1,1163 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+  <script src="components/loader.js"></script>
+  <script src="lib/onsenui/js/onsenui.min.js"></script>
+
+  <link rel="stylesheet" href="components/loader.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Electrolize&display=swap" rel="stylesheet">
+  
+  <!-- <script src="jquery-3.5.1.min.js"></script> -->
+
+  <script>
+    ons.ready(function() {
+      console.log("Onsen UI is ready!");
+    });
+
+    if (ons.platform.isIPhoneX()) {
+      document.documentElement.setAttribute('onsflag-iphonex-portrait', '');
+      document.documentElement.setAttribute('onsflag-iphonex-landscape', '');
+    }
+  </script>
+</head>
+<body>
+  <!-- <h1>hello timer index.ctp</h1> -->
+  <div class="container">
+      <div class="class_triangle_left " id="id_serve_home"></div>
+      <div class="class_gametimer" id="id_gametimer">00:00</div>
+      <div class="class_triangle_right" id="id_serve_away"></div>
+
+      <div id="Af5" class="class_5foul"></div>
+      <div id="Af4" class="class_foul_count"></div>
+      <div id="Af3" class="class_foul_count"></div>
+      <div id="Af2" class="class_foul_count"></div>
+      <div id="Af1" class="class_foul_count"></div>
+
+      <p class="class_point" id="id_a_point"  value="count_A_p1p">0</p>
+      <p class="class_24" id="id_24">24</p>
+      <p class="class_point" id="id_b_point" value="count_B_p1p">0</p>
+        
+      <div id="Bf5" class="class_5foul"></div>
+      <div id="Bf4" class="class_foul_count"></div>
+      <div id="Bf3" class="class_foul_count"></div>
+      <div id="Bf2" class="class_foul_count"></div>
+      <div id="Bf1" class="class_foul_count"></div>
+      
+      <!-- first line -->
+      
+      <!-- A point plus -->
+      <!-- <div class="class_up_btn "  style="text-align:center;">
+        <button type="button" id="id_plus_h1p" class="btn btn-primary rounded-circle p-0" data_points="1" style="width:5rem;height:5rem; "> ＋P </button>
+      </div> -->
+      
+      <div id="id_plus_h1p" class="class_up_btn "  style="text-align:center;" >
+        <ons-button id="id_plus_h1p" class="class_up_btn" style="">＋P</ons-button>
+      </div>
+      
+      <!-- A point minus -->
+      <!-- <div class="class_minus_btn " style="text-align:center;">
+        <button type="button"id="id_minus_h1p" class="btn btn-danger rounded-circle p-0" style="width:5rem;height:5rem;"> -P </button>
+      </div> -->
+      
+      <div id="id_minus_h1p" class="class_minus_btn "  style="text-align:center;" >
+        <ons-button id="id_minus_h1p" class="class_minus_btn" style="">-P</ons-button>
+      </div>
+      
+      <!-- serve left -->
+      <!-- <div class="class_serve_r " style="text-align:center;">
+        <button type="button" id="id_serve_home_btn" class="btn btn-warning rounded-10"> < </button>
+      </div> -->
+      
+      <div id="id_serve_home_btn" class="class_serve_l"  style="text-align:center;" >
+        <ons-button id="id_serve_home_btn" class="class_serve_l" style=""> < </ons-button>
+      </div>
+      
+      <!-- serve right -->
+      <!-- <div class="class_serve_l " style="text-align:center;">
+        <button type="button" id="id_serve_away_btn" class="btn btn-warning rounded-10"> > </button>
+      </div> -->
+      
+      <div id="id_serve_away_btn" class="class_serve_r"  style="text-align:center;" >
+        <ons-button id="id_serve_away_btn" class="class_serve_r" style=""> > </ons-button>
+      </div>
+      
+      <!-- B point plus -->
+      <!-- <div class="class_up_btn " style="text-align:center;">
+        <button type="button" id="id_plus_a1p" class="btn btn-primary rounded-circle p-0" style="width:5rem;height:5rem;"> +P </button>
+      </div> -->
+      
+      <div id="id_plus_a1p" class="class_up_btn"  style="text-align:center;" >
+        <ons-button id="id_plus_a1p" class="class_up_btn" style="">+P</ons-button>
+      </div>
+      
+      <!-- B point minus -->
+      <!-- <div class="class_minus_btn " style="text-align:center;">
+        <button type="button" id="id_minus_a1p" class="btn btn-danger rounded-circle p-0" style="width:5rem;height:5rem;"> -P </button>
+      </div> -->
+      
+      <div id="id_minus_a1p" class="class_minus_btn"  style="text-align:center;" >
+        <ons-button id="id_minus_a1p" class="class_minus_btn" style="">-P</ons-button>
+      </div>
+  
+    <!-- first line -->
+    
+    <!-- second line -->
+      
+      <!-- timer +1m-->
+      <!-- <div class="class_up_btn col-md-2">
+        <button type="button" id="id_minute_plus" class="btn btn-primary rounded-circle p-0" style="width:5rem;height:5rem;"> ＋M </button>
+      </div> -->
+      
+      <div id="id_minute_plus" class="class_up_btn"  style="text-align:center;" >
+        <ons-button id="id_minute_plus" class="class_up_btn" style="">+M</ons-button>
+      </div>
+      
+      <!-- timer -1m -->
+      <!-- <div class="class_minus_btn col-md-2">
+        <button type="button" id="id_minute_minuse" class="btn btn-danger rounded-circle p-0" style="width:5rem;height:5rem;"> -M </button>
+      </div> -->
+      
+      <div id="id_minute_minuse" class="class_minus_btn"  style="text-align:center;" >
+        <ons-button id="id_minute_minuse" class="class_minus_btn" style="">-M</ons-button>
+      </div>
+      
+      <!-- timer start stop -->
+      <!-- <div class="class_timer col-md-4">
+        <button type="button" id="id_gametimer_btn" class="btn btn-light rounded-circle p-0 class_timer"> timer start </button>
+      </div> -->
+      
+      <div id="id_gametimer_btn" class="class_timer"  style="text-align:center;" >
+        <ons-button id="id_gametimer_btn" class="class_timer" style=""> Timer </ons-button>
+      </div>
+      
+      <!-- buzzer audio file -->
+      <audio id="id_buzzer_audio" src="buzzer.mp3"></audio>
+      <!-- 24s buzzer audio file -->
+      <audio id="id_24buzzer_audio" src="buzzer24.mp3"></audio>
+      
+      <!-- timer +1s -->
+      <!-- <div class="class_up_btn col-md-2">
+        <button type="button" id="id_second_plus" class="btn btn-primary rounded-circle p-0" style="width:5rem;height:5rem;"> +S </button>
+      </div> -->
+      
+      <div id="id_second_plus" class="class_up_btn"  style="text-align:center;" >
+        <ons-button id="id_second_plus" class="class_up_btn" style="">+S</ons-button>
+      </div>
+      
+      <!-- timer -1s -->
+      <!-- <div class="class_minus_btn col-md-2">
+        <button type="button" id="id_second_minuse" class="btn btn-danger rounded-circle p-0" style="width:5rem;height:5rem;"> -S </button>
+      </div> -->
+      
+      <div id="id_second_minuse" class="class_minus_btn"  style="text-align:center;" >
+        <ons-button id="id_second_minuse" class="class_minus_btn" style="">-S</ons-button>
+      </div>
+      
+    <!-- second line -->
+    
+    <!-- third line -->
+      
+      <!-- A point plus -->
+      <!-- <div class="class_24s_plus_btn col-md-2">
+        <button type="button" id="id_24_plus" class="btn btn-primary rounded-circle p-0" style="width:5rem;height:5rem;"> ＋S </button>
+      </div> -->
+      
+      <div id="id_24_plus" class="class_24s_plus_btn"  style="text-align:center;" >
+        <ons-button id="id_24_plus" class="class_24s_plus_btn" style="">+S</ons-button>
+      </div>
+      
+      <!-- A point minus -->
+      <!-- <div class="class_24s_minus_btn col-md-2">
+        <button type="button"id="id_24_minus" class="btn btn-danger rounded-circle p-0" style="width:5rem;height:5rem;"> -S </button>
+      </div> -->
+      
+      <div id="id_24_minus" class="class_24s_minus_btn"  style="text-align:center;" >
+        <ons-button id="id_24_minus" class="class_24s_minus_btn" style="">-S</ons-button>
+      </div>
+      
+      <!-- serve left -->
+      <!-- <div class="class_24timer col-md-4">
+        <button type="button" id="id_24_btn" class="btn btn-light rounded-circle p-0 class_timer"> 24s start </button> -->
+      <!-- </div> -->
+      
+      <div id="id_24_btn" class="class_24timer"  style="text-align:center;" >
+        <ons-button id="id_24_btn" class="class_24timer" style=""> 24timer  </ons-button>
+      </div>
+      
+      <!-- 14s -->
+      <!-- <div class="class_14s_btn col-md-2">
+        <button type="button" id="id_14s_btn" class="btn btn-primary rounded-circle p-0" style="width:5rem;height:5rem;"> 14s </button>
+      </div> -->
+      
+      <div id="id_14s_btn" class="class_14s_btn"  style="text-align:center;" >
+        <ons-button id="id_14s_btn" class="class_14s_btn" style="">14s</ons-button>
+      </div>
+      
+      <!-- Reset 24s -->
+      <!-- <div class="class_reset24_btn col-md-2">
+        <button type="button" id="id_24_reset" class="btn btn-danger rounded-circle p-0 reset" style="width:5rem;height:5rem; font-size:40px;"> Re: </button>
+      </div> -->
+      
+      <div id="id_24_reset" class="class_reset24_btn"  style="text-align:center;" >
+        <ons-button id="id_24_reset" class="class_reset24_btn" style="">Re:</ons-button>
+      </div>
+      
+    <!-- third line -->
+    
+    <!-- fourth line -->
+      
+      <!-- A foul plus -->
+      <!-- <div class="class_foul_plus_btn col-md-2">
+        <button type="button" id="id_A_fplus" class="btn btn-primary rounded-circle p-0" style="width:5rem;height:5rem; font-size:40px;"> ＋F </button>
+      </div> -->
+      
+      <div id="id_A_fplus" class="class_foul_plus_btn"  style="text-align:center;" >
+        <ons-button id="id_A_fplus" class="class_foul_plus_btn" style="">+F</ons-button>
+      </div>
+      
+      <!-- A foul minus -->
+      <!-- <div class="class_foul_minus_btn col-md-2">
+        <button type="button" id="id_A_fminuse" class="btn btn-danger rounded-circle p-0" style="width:5rem;height:5rem; font-size:40px;"> -F </button>
+      </div> -->
+      
+      <div id="id_A_fminuse" class="class_foul_minus_btn"  style="text-align:center;" >
+        <ons-button id="id_A_fminuse" class="class_foul_minus_btn" style="">+F</ons-button>
+      </div>
+      
+      <!-- buzzer -->
+      <!-- <div class="class_buzzer col-md-4">
+        <button type="button" id="id_buzzer_btn" class="btn btn-light rounded-circle p-0 class_timer"> Buzzer </button>
+      </div> -->
+      
+      <div id="id_buzzer_btn" class="class_buzzer"  style="text-align:center;" >
+        <ons-button id="id_buzzer_btn" class="class_buzzer" style="">Buzzer</ons-button>
+      </div>
+      
+      <!-- B foul plus -->
+      <!-- <div class="class_foul_plus_btn col-md-2">
+        <button type="button" id="id_B_fplus" class="btn btn-primary rounded-circle p-0" style="width:5rem;height:5rem; font-size:40px;"> ＋F </button>
+      </div> -->
+      
+      <div id="id_B_fplus" class="class_foul_plus_btn"  style="text-align:center;" >
+        <ons-button id="id_B_fplus" class="class_foul_plus_btn" style="">+F</ons-button>
+      </div>
+      
+      <!-- B foul minus -->
+      <!-- <div class="class_foul_minus_btn col-md-2">
+        <button type="button" id="id_B_fminuse" class="btn btn-danger rounded-circle p-0" style="width:5rem;height:5rem; font-size:40px;"> -F </button>
+      </div> -->
+      
+      <div id="id_B_fminuse" class="class_foul_minus_btn"  style="text-align:center;" >
+        <ons-button id="id_B_fminuse" class="class_foul_minus_btn" style="">+F</ons-button>
+      </div>
+      
+      <!-- fourth line -->
+      
+      <!-- fifte line -->
+       
+       
+       <!-- <ons-page> -->
+        <!-- <ons-button onclick="notify()">Notification</ons-button> -->
+        <ons-button onclick="notify()"
+        class="class_menu" id="id_menu">Menu</ons-button>
+      <!-- </ons-page> -->
+
+      <template id="alert-dialog.html">
+        <ons-alert-dialog id="my-alert-dialog" modifier="rowfooter">
+          <div class="alert-dialog-mask"></div>
+            <div class="alert-dialog">
+              <div class="alert-dialog-container">
+                <div class="alert-dialog-content">
+                  Hello World!
+                </div>
+
+                <div class="alert-dialog-footer">
+                  <button class="alert-dialog-button alert-dialog-button--primal">OK</button>
+                </div>
+              </div>
+            </div>
+        </ons-alert-dialog>
+      </template>
+      <!-- fifte line -->
+      
+  </div>
+    
+
+  
+  <script type="text/javascript">
+    // alert("hello word");
+    
+    //------------------------------------------
+    $(document).ready(function()
+    {
+    
+      var count_A_p1p = 0;
+    
+      $('#id_plus_h1p').click(function(){
+         // console.log('クリックしました');
+         // count_A_p1p++;//0から1ずつ増える
+         $("#id_a_point").html(++count_A_p1p);
+    
+      });
+    
+      
+    
+      $('#id_minus_h1p').click(function(){
+         // console.log('クリックしました');
+         // count_A_p1p--;//0から1ずつ減る
+         
+         if(count_A_p1p == 0)
+         {
+           console.log('score can not be minuse');
+           return;
+         }
+         else
+         {
+           console.log('score can be minus');
+           $("#id_a_point").html(--count_A_p1p);
+         }
+         
+      });
+      
+      var count_B_p1p = 0;
+      
+      $('#id_plus_a1p').click(function()
+      {
+        $('#id_b_point').html(++count_B_p1p);
+      });
+      
+      $('#id_minus_a1p').click(function(){
+        
+        if(count_B_p1p == 0)
+        {
+          console.log('score can not be minuse');
+          return;
+        }
+        else 
+        {
+          $('#id_b_point').html(--count_B_p1p);
+        }
+      
+      });
+      
+      //serve 
+      //------------------------------------------
+      var serve_home = 1;
+      var serve_away = 1;
+      
+      
+      $('#id_serve_home_btn').click(function()
+      {
+        if(serve_home == 1)
+        {
+          $('#id_serve_away').css('visibility','hidden');
+          serve_away = 0;
+          
+          return;
+        }
+        else if (serve_home == 0 & serve_away == 1)
+        {
+          $('#id_serve_home').css('visibility','');
+          serve_home = 1;
+          
+          $('#id_serve_away').css('visibility','hidden');
+          serve_away = 0;
+          
+          return;
+        }
+      });
+      
+      $('#id_serve_away_btn').click(function()
+      {
+        if(serve_away == 1)
+        {
+          $('#id_serve_home').css('visibility','hidden');
+          serve_home = 0;
+          
+          return;
+        }
+        else if(serve_away == 0 & serve_home == 1)
+        {
+          $('#id_serve_away').css('visibility','');
+          serve_away = 1;
+          
+          $('#id_serve_home').css('visibility','hidden');
+          serve_home = 0;
+          
+          return;
+        }
+      });
+      //------------------------------------------
+      
+      
+      //related timer code from here 
+      //------------------------------------------
+      var min = 0;
+      var second = 0;
+      
+      
+      var tm = ('00' + min).slice(-2);
+      var ts = ('00' + second).slice(-2);
+      // alert(tm);
+      
+      //timer minute plus
+      $('#id_minute_plus').click(function()
+      {
+        // min = ++min;
+        // tm = ('00' + min).slice(-2); 
+        // // alert(tm);
+        // 
+        // if(min > 99){
+        //   min = 0;
+        //   tm = ('00' + min).slice(-2);
+        // }
+        
+        remainingTime += 60;
+        if (remainingTime > 5940) {
+          remainingTime = 0;
+        }
+        return $('#id_gametimer').html(convertSeconds(remainingTime));
+        // return  $('#id_gametimer').html(tm+":"+ts);
+        
+      });
+      
+      //timere minute minuse
+      $('#id_minute_minuse').click(function()
+      {
+        
+        // min= --min;
+        // tm = ('00' + min).slice(-2);
+        // // alert(tm);
+        // 
+        // if(min < 0){
+        //   min = 99;
+        //   tm = ('00' + min).slice(-2);
+        // }
+        
+        if (remainingTime > 60) {
+          remainingTime -= 60;
+        } else if (remainingTime <= 0) {
+          remainingTime = 5940;
+        } else {
+          remainingTime = 0;
+          return $('#id_gametimer').html("00:00");
+        }
+        return $('#id_gametimer').html(convertSeconds(remainingTime));
+        // return $('#id_gametimer').html(tm+":"+ts);
+        
+      });
+      
+      //timer second plus
+      $('#id_second_plus').click(function()
+      {
+        // second = ++second;
+        // ts = ('00' + second).slice(-2);
+        // // alert(tm+":"+ts);
+        // 
+        // if(second > 59){
+        //   second = 0;
+        //   ts = ('00' + second).slice(-2);
+        // }
+        // 
+        // return $('#id_gametimer').html(tm+":"+ts);
+        
+        if (remainingTime >= 0) {
+          remainingTime += 1;
+        } else if (remainingTime <= 0) {
+          remainingTime = 59;
+        }
+        return $('#id_gametimer').html(convertSeconds(remainingTime));
+      });
+      
+      //timer second minuse
+      $('#id_second_minuse').click(function()
+      {
+        // second = --second;
+        // ts = ('00' + second).slice(-2);
+        // // alert(ts);
+        // 
+        // if(second < 0){
+        //   second = 59;
+        //   ts = ('00' + second).slice(-2);
+        // }
+        // 
+        // return $('#id_gametimer').html(tm+":"+ts);
+        
+        if (remainingTime > 0) {
+          remainingTime -= 1;
+        } else if (remainingTime <= 0) {
+          remainingTime = 59;
+        }
+        return $('#id_gametimer').html(convertSeconds(remainingTime));
+        
+      });
+      
+      
+      //timer start and stop
+      //------------------
+      var countDown = 0;
+      
+      //ここでゲーム時間を秒数に変換する
+      var gametime = (min*60 + second);
+      //デバグ
+      // alert(min);
+      // alert(second);
+      // alert(gametime);
+      
+      //minとsecondを時間表記にする。00:00
+      function convertSeconds(s){
+        var convert_min = Math.floor(s / 60);
+        var convert_sec = s % 60;
+        
+        //  $('#id_gametimer').html()だとHTMLが消える。↓の桁数の表示指定を直接記入した。
+        return ("00" + convert_min).slice(-2)+":"+("00" + convert_sec).slice(-2);
+      }
+      
+      //jqueryは.get(0);　配列の形で取得する必要があるらしい。　javascriptの場合は。.play();で可能。
+      var buzzer = $('#id_buzzer_audio').get(0);
+      
+      // adjust volume
+      buzzer.volume = 0.1;
+      
+      $('#id_buzzer_btn').on("mousedown touchstart",function()
+      {
+        buzzer.play();
+      });
+      
+      
+      
+      
+      
+      //flag for paused
+      var myInterval = -1;
+      
+      var remainingTime = 0;
+      
+      // when you click gametimer btn timer is started 
+      $('#id_gametimer_btn').click(function()
+      {
+        var gametime = (min*60 + second);
+        // min = 0;
+        // second = 0;
+        //デバグ
+        // min;
+        // second;
+        // alert(min);
+        // alert(second);
+        // alert(gametime);
+        // alert(min*60 + second);
+        console.log("min"+"="+min);
+        console.log("second"+"="+second);
+        
+        //if timer paused start
+        if (myInterval == - 1) {
+          
+          //when click the button it's working. this is for remove time lag. setInterval's time lag. 
+          timeIt();
+          
+          //every after one secoond it's working. time lag is happen.
+          myInterval = setInterval(timeIt,1000);
+          // alert(gametime);
+          // min = 0;
+          // second = 0;
+          console.log("gametime on play"+"="+gametime);
+          console.log(convertSeconds(gametime - countDown));
+          
+          $('#id_minute_plus').prop('disabled',true);
+          $('#id_minute_minuse').prop('disabled',true);
+          $('#id_second_plus').prop('disabled',true);
+          $('#id_second_minuse').prop('disabled',true);
+          
+          // $('#id_gametimer_btn').html('timer stop');
+          
+        } 
+        else //timer start to paused
+        {
+          clearInterval(myInterval);
+          myInterval = -1;
+
+          //再スタート時にcountDownを0にする。カウントした分だけ再スタート時にひかれるから。
+          countDown = 0;
+          
+          // console.log("remainingTime"+"="+remainingTime);
+          // console.log(convertSeconds(gametime - countDown));
+          // console.log("remainingTime on pause"+"="+min);
+          // console.log("remainingTime on pause"+"="+second);
+          console.log("remainingTime on pause"+"= "+remainingTime );
+          console.log(convertSeconds(remainingTime));
+          console.log("countdown on pause"+"="+countDown);
+          
+          $('#id_minute_plus').prop('disabled',false);
+          $('#id_minute_minuse').prop('disabled',false);
+          $('#id_second_plus').prop('disabled',false);
+          $('#id_second_minuse').prop('disabled',false);
+          
+          // $('#id_gametimer_btn').html('timer start');
+          
+        }
+        
+        function timeIt()
+        {
+          
+          countDown++;
+          
+          remainingTime = (remainingTime - 1);
+          console.log("remainingTime on play"+"="+remainingTime);
+          
+          // min = Math.floor(remainingTime / 60);
+          // second = remainingTime % 60;
+          
+          //call convertSeconds function
+          $('#id_gametimer').html(convertSeconds(remainingTime));
+          
+          //if gaime time = 0; buzzer is played. 
+          if(remainingTime == 0)
+          {
+            //インターバルの処理を止められなかったのでHTMLを00:00に書き換えて動いてないように見せている。
+            $('#id_gametimer').html("00:00");
+            buzzer.play();
+            // gametime = 0; になったらintervalを消す。
+            clearInterval(myInterval);
+            
+            $('#id_minute_plus').prop('disabled',false);
+            $('#id_minute_minuse').prop('disabled',false);
+            $('#id_second_plus').prop('disabled',false);
+            $('#id_second_minuse').prop('disabled',false);
+          } 
+          else if (remainingTime <= 0) 
+          {
+            $('#id_gametimer').html("00:00");
+            // gametime = 0; になったらintervalを消す。
+            clearInterval(myInterval);
+            
+            $('#id_minute_plus').prop('disabled',false);
+            $('#id_minute_minuse').prop('disabled',false);
+            $('#id_second_plus').prop('disabled',false);
+            $('#id_second_minuse').prop('disabled',false);
+          }
+          
+          // else if (remainingTime == 0) 
+          // // else if (gametime == 0) //gametimerが00:00の状態でbtn押下してもタイマーを起動させない。
+          // {
+          //   //インターバルの処理を止められなかったのでHTMLを00:00に書き換えて動いてないように見せている。
+          //   $('#id_gametimer').html("00:00");
+          //   clearInterval(myInterval);
+          // }
+        }
+        
+      });
+      //timer start and stop
+      //------------------
+      
+      //24s timer start and stop
+      //------------------
+      var tf = 0;
+      
+      var tfTimer = 24;
+      console.log("tfTimer"+"="+tfTimer);
+      
+      var tfInterval = -1;
+      console.log("tfInterval"+"="+tfInterval);
+      
+      var tfremainingtime = 0;
+      
+      var tfBuzzer = $('#id_24buzzer_audio').get(0);
+      
+      // adjust volume
+      tfBuzzer.volume = 0.1;
+      
+      
+      
+      //24s plus 
+      $('#id_24_plus').click(function(){
+        
+        if(tfTimer == 24){
+          tfTimer = 24;
+        } else if (tfTimer <= 24) {
+          tfTimer +=1;
+          $('#id_24_plus').prop('disabled',false);
+        } else if (tfTimer >= 24) {
+          tfTimer = 24;
+          return $('#id_24').html(tfTimer);
+        }
+        
+        console.log("tfTimer was plus1"+"="+tfTimer);
+        
+        return $('#id_24').html(tfTimer);
+        
+      });
+      
+      
+      
+      
+      //24s minuse
+      $('#id_24_minus').click(function(){
+        
+        if(tfTimer > 0){
+          tfTimer -= 1;
+        }else if (tfTimer <= 0 ) {
+          tfTimer = 0;
+          return $('#id_24').html(tfTimer);
+        }
+        
+        console.log("tfTimer was minuse1"+"="+tfTimer);
+        
+        return $('#id_24').html(tfTimer);
+      });
+      
+      //when you click gametimer btn timer is started also stop
+      $('#id_24_btn').click(function(){
+        
+        if(tfInterval == -1){
+          
+          //when click the button it's working. this is for remove time lag. setInterval's time lag. 
+          tftimeIt();
+          
+          //after every one second it's working. it has time lag .
+          tfInterval = setInterval(tftimeIt,1000);
+          //debug
+          console.log("tfTimer"+"="+tfTimer);
+          
+          $('#id_24_plus').prop('disabled',true);
+          $('#id_24_minus').prop('disabled',true);
+          
+          // $('#id_24_btn').html('24s stop');
+        } 
+        else 
+        {
+          clearInterval(tfInterval);
+          
+          //for next click,must set -1
+          tfInterval = -1;
+          
+          //when 24second is stopped plus and minus are enable. 
+          $('#id_24_plus').prop('disabled',false);
+          $('#id_24_minus').prop('disabled',false);
+          
+          // $('#id_24_btn').html('24s start');
+        }
+        
+        function tftimeIt(){
+          //it's for calculate remainingTime
+          tfTimer = (tfTimer - 1);
+          console.log("remaining tfTimer"+"="+tfTimer); 
+          
+          $('#id_24').html(tfTimer);
+          
+          if(tfTimer == 0){
+            
+            //when 24 second time up then it's displayed 0
+            $('#id_24').html('0');
+            
+            $('#id_24_plus').prop('disabled',false);
+            $('#id_24_minus').prop('disabled',false);
+            
+            // $('#id_24_btn').html('24s start');
+            
+            //play tfBuzzer sound
+            tfBuzzer.play();
+            
+            //24 timer is stopped
+            clearInterval(tfInterval);
+          }
+        }
+        
+      });
+      
+      //14s button
+      $('#id_14s_btn').click(function(){
+        
+        tfTimer = 14;
+        //デバグ
+        console.log(tfTimer);
+        
+        $('#id_24').html(tfTimer);
+        
+      });
+      
+      //24s reset button
+      $('#id_24_reset').click(function(){
+        
+        tfTimer =24;
+        //debug
+        console.log(tfTimer);
+        
+        $('#id_24').html(tfTimer);
+        
+      });
+      
+      //foul count
+      
+      // team a foul count 
+      var Afcnt = 0;
+      //team b foul count
+      var Bfcnt = 0;
+      
+      $('#id_A_fplus').click(function(){
+        
+        if(Afcnt < 5){
+          
+          ++Afcnt;
+          console.log('Afcnt' + '=' + Afcnt);
+          
+        } else if (Afcnt >= 5){
+          
+          Afcnt = 5;
+          
+        }
+        
+        
+        if(Afcnt == 1){
+          $('#Af1').css('visibility','visible');
+          //debug
+          // console.log('A1');
+          
+        } else if (Afcnt == 2) {
+          
+          $('#Af2').css('visibility','visible');
+          //debug
+          // console.log('A2');
+          
+        } else if (Afcnt == 3) {
+          
+          $('#Af3').css('visibility','visible');
+          //debug
+          // console.log('A3');
+          
+        } else if (Afcnt == 4) {
+          
+          $('#Af4').css('visibility','visible');
+          //debug
+          // console.log('A4');
+          
+        } else if (Afcnt == 5) {
+          
+          $('#Af5').css('visibility','visible');
+          //debug
+          // console.log('A5');
+          
+          // $('#id_A_fplus').prop('disabled','true');
+          
+        } 
+      
+        
+      });
+      
+      //team a foul minuse
+      $('#id_A_fminuse').click(function(){
+        
+        if(Afcnt > 0){
+          
+          --Afcnt;
+          console.log('Afcnt' + '=' + Afcnt);
+          
+        } else if (Afcnt <= 0) {
+          
+          Afcnt = 0;
+          
+        }
+        
+        if(Afcnt == 4){
+          
+          $('#Af5').css('visibility','');
+          
+        } else if (Afcnt == 3) {
+          
+          $('#Af4').css('visibility','');
+          
+        } else if (Afcnt == 2) {
+          
+          $('#Af3').css('visibility','');
+          
+        } else if (Afcnt == 1) {
+          
+          $('#Af2').css('visibility','');
+          
+        } else if (Afcnt == 0) {
+          
+          $('#Af1').css('visibility','');
+          
+          Afcnt = 0;
+          
+        }
+        
+      });
+      
+      //team b foul plus
+      $('#id_B_fplus').click(function(){
+        
+        if(Bfcnt < 5){
+          
+          ++Bfcnt
+          console.log('Bfcnt'+"="+Bfcnt);
+          
+        } else if (Bfcnt >= 5) {
+          
+          Bfcnt = 5;
+          
+        }
+        
+        
+        
+        if(Bfcnt == 1){
+          
+          $('#Bf1').css('visibility','visible');
+        
+        } else if (Bfcnt ==2) {
+          
+          $('#Bf2').css('visibility','visible');
+          
+        } else if (Bfcnt == 3) {
+          
+          $('#Bf3').css('visibility','visible');
+          
+        } else if (Bfcnt == 4) {
+          
+          $('#Bf4').css('visibility','visible');
+          
+        } else if (Bfcnt ==5) {
+          
+          $('#Bf5').css('visibility','visible');
+          
+        }
+        
+        
+      });
+      
+      //team b foul minuse
+      $('#id_B_fminuse').click(function(){
+        
+        if(Bfcnt > 0){
+          
+          --Bfcnt;
+          console.log('Bfcnt' + '=' + Bfcnt);
+          
+        } else if (Bfcnt <= 0) {
+          
+          Bfcnt = 0;
+          
+        }
+        
+        if(Bfcnt == 4){
+          
+          $('#Bf5').css('visibility','');
+          
+        } else if (Bfcnt == 3) {
+          
+          $('#Bf4').css('visibility','');
+          
+        } else if (Bfcnt == 2) {
+          
+          $('#Bf3').css('visibility','');
+          
+        } else if (Bfcnt == 1) {
+          
+          $('#Bf2').css('visibility','');
+          
+        } else if (Bfcnt == 0) {
+          
+          $('#Bf1').css('visibility','');
+          
+          Bfcnt = 0;
+          
+        }
+        
+      });
+      
+      //game reset with longpress
+      //------------------------------------------
+      //長押しを検知する値
+      var longpress_reset = 2000;
+      //長押し実行タイマーのID
+      var longpress_rest_Id;
+      //長押しフラグ
+      var gamereset_flg = 0;
+      
+      /// 長押し・ロングタップを検知する
+      $('#id_24_reset').on("mousedown touchstart",function(){
+        //長押しフラグ
+        gamereset_flg = 1;
+        
+        if(gamereset_flg == 1){
+          
+          longpress_rest_Id = setTimeout(function(){
+            
+            // tfBuzzer.play();
+            
+            //point
+            count_A_p1p = 0;
+            console.log("count_A_p1p="+count_A_p1p);
+            $("#id_a_point").html(count_A_p1p);
+            
+            //point
+            count_B_p1p = 0;
+            console.log("count_B_p1p="+count_B_p1p);
+            $("#id_b_point").html(count_B_p1p);
+            
+            //game timer
+            min = 0;
+            second = 0;
+            remainingTime = 0;
+            console.log("remainingTime="+remainingTime);
+            console.log("min="+min);
+            console.log("second="+second);
+            $("#id_gametimer").html("00:00");
+            
+            //serve
+            var serve_home = 1;
+            var serve_away = 1;
+            $('#id_serve_home').css('visibility','');
+            $('#id_serve_away').css('visibility','');
+            
+            //24timer
+            tfTimer = 24;
+            console.log("tfTimer"+tfTimer);
+            $('#id_24').html(tfTimer);
+            
+            //foul
+            Afcnt = 0;
+            console.log("Afcnt="+Afcnt);
+            $('#Af5').css('visibility','');
+            $('#Af4').css('visibility','');
+            $('#Af3').css('visibility','');
+            $('#Af2').css('visibility','');
+            $('#Af1').css('visibility','');
+            
+            
+            Bfcnt = 0;
+            console.log("Bfcnt="+Bfcnt);
+            $('#Bf5').css('visibility','');
+            $('#Bf4').css('visibility','');
+            $('#Bf3').css('visibility','');
+            $('#Bf2').css('visibility','');
+            $('#Bf1').css('visibility','');
+            
+          }, longpress_reset);
+          
+        }
+      }).on("mouseup touchend",function(){
+        
+        
+        clearTimeout(longpress_rest_Id);
+        
+      });
+      //game reset with longpress
+      //------------------------------------------
+      
+      //buzzer repeat play with longpress
+      //------------------------------------------
+      /// 長押しを検知する値
+      var longpress_buzzer = 1990;
+      /// 長押し実行タイマーのID
+      var longpressId;
+      // 長押しフラグ
+      var buzzer_flg = 0;
+       
+      /// 長押し・ロングタップを検知する
+      $('#id_buzzer_btn').on("mousedown touchstart",function(){
+        //長押しフラグ
+        buzzer_flg = 1;
+        
+        if(buzzer_flg == 1){
+          
+          longpressId = setTimeout(function(){
+            
+            tfBuzzer.play();
+            
+          }, longpress_buzzer);
+          
+        }
+      }).on("mouseup touchend",function(){
+        
+        buzzer_flg = 0;
+        
+        clearTimeout(longpressId);
+        
+      });
+      //game reset with longpress
+      //------------------------------------------
+      
+      //displeay menu
+      //------------------------------------------
+      // $('#id_menu').dblclick(function(){
+      //   $('#exampleModal').modal('show');
+      // });
+      //------------------------------------------
+    });
+    
+    //displeay menu
+    //------------------------------------------
+    //documentを読み込んでいるので、$(document).readyの中に入れると動かない
+    var createAlertDialog = function() {
+      var dialog = document.getElementById('my-alert-dialog');
+
+      if (dialog) {
+        dialog.show();
+      } else {
+        ons.createElement('alert-dialog.html', { append: true })
+          .then(function(dialog) {
+            dialog.show();
+          });
+      }
+    };
+
+    var hideAlertDialog = function() {
+      document
+        .getElementById('my-alert-dialog')
+        .hide();
+    };
+
+    var notify = function() {
+     ons.notification.alert({
+        title:        "",
+        messageHTML:  "<div class=\"div-scroller\">"
+                     +"<div><h5><span class=\"mgr-10\"><ons-button id=\"id_plus_h1p\" class=\"class_up_btn\">＋P</ons-button></span>point plus</h5></div>"
+                     
+                     +"<div><h5><span class=\"mgr-10\"><ons-button id=\"id_minus_a1p\" class=\"class_minus_btn\">-P</ons-button></span>point minus</h5></div>"
+                     
+                     +"<div><h5><span class=\"mgr-10\"><ons-button id=\"id_serve_home_btn\" class=\"class_serve_l\"> < </ons-button></span>serve home</h5></div>"
+                     
+                     +"<div><h5><span class=\"mgr-10\"><ons-button id=\"id_serve_away_btn\" class=\"class_serve_r\"> > </ons-button></span>serve away</h5></div>"
+                     
+                     +"<div><h5><span class=\"mgr-10\"><ons-button id=\"id_serve_away_btn\" class=\"class_serve_r\"> > </ons-button></span>serve away</h5></div>"
+                     
+                     +"<div><h5><span class=\"mgr-10\"><ons-button id=\"id_minute_plus\" class=\"class_up_btn\"> +M </ons-button></span>1 minute plus</h5></div>"
+                     
+                     +"<div><h5><span class=\"mgr-10\"><ons-button id=\"id_minute_minuse\" class=\"class_minus_btn\"> -M </ons-button></span>1 minute minus</h5></div>"
+                     
+                     +"<div><h5><span class=\"mgr-10\"><ons-button id=\"id_gametimer_btn\" class=\"class_timer\"> Timer </ons-button></span>timer start&stop</h5></div>"
+                     
+                     +"<div><h5><span class=\"mgr-10\"><ons-button id=\"id_second_plus\" class=\"class_up_btn\"> +S </ons-button></span>1 second plus </h5></div>"
+                     
+                     +"<div><h5><span class=\"mgr-10\"><ons-button id=\"id_second_minuse\" class=\"class_minus_btn\"> -S </ons-button></span>1 second minus </h5></div>"
+                     
+                     +"<div><h5><span class=\"mgr-10\"><ons-button id=\"id_24_plus\" class=\"class_24s_plus_btn\"> +S </ons-button></span>24 second plus </h5></div>"
+                     
+                     +"<div><h5><span class=\"mgr-10\"><ons-button id=\"id_24_minus\" class=\"class_24s_minus_btn\"> -S </ons-button></span>24 second minus </h5></div>"
+                     
+                     +"<div><h5><span class=\"mgr-10\"><ons-button id=\"id_24_btn\" class=\"class_24timer\"> 24timer </ons-button></span>24s start&stop </h5></div>"
+                     
+                     +"<div><h5><span class=\"mgr-10\"><ons-button id=\"id_14s_btn\" class=\"class_14s_btn\"> 14s </ons-button></span>set 14 second </h5></div>"
+                     
+                     +"<div><h5><span class=\"mgr-10\"><ons-button id=\"id_24_reset\" class=\"class_reset24_btn\"> Re: </ons-button></span>reset 24 second <br> game reset: press and hold Re: button for 2 second </h5></div>"
+                     
+                      +"<div><h5><span class=\"mgr-10\"><ons-button id=\"id_A_fplus\" class=\"class_foul_plus_btn\"> +F </ons-button></span>foul plus </h5></div>"
+                     
+                      +"<div><h5><span class=\"mgr-10\"><ons-button id=\"id_A_fminuse\" class=\"class_foul_minus_btn\"> -F </ons-button></span>foul minus </h5></div>"
+                     
+                      +"<div><h5><span class=\"mgr-10\"><ons-button id=\"id_buzzer_btn\" class=\"class_buzzer\"> Buzzer </ons-button></span>buzzer sounds <br> long buzzer sounds : press and hold Buzzer button for 2 second </h5></div>"
+                     
+                     +"</div>"
+      });
+    };
+    //displeay menu
+    //------------------------------------------
+  </script>
+</body>
+</html>

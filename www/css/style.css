@@ -1,0 +1,613 @@
+/**/
+@@media screen and (max-width: 1000px){
+  
+}
+
+body{
+  background: black;
+}
+
+/* timer first line */
+.container{
+  max-width: 100%;
+  display:grid;
+  
+  grid-template-columns: 1fr 80px 1fr 1fr 80px 1fr;
+  grid-template-rows:  60px 25px 25px 25px 25px 25px 30px 40px 30px 40px 30px 40px 30px 40px 30px 40px 30px 40px;
+  /* grid-template-columns: repeat(6,1fr); */
+  /* grid-template-rows: 40px 200px 40px; */
+  /* grid-template: */
+      /* "left center right" 100px */
+      /* "item1 item2 item3" 100px */
+      /* "afd apd time24d bpd bfd" 50px */
+      /* "af a_point 24s b_point bf" 50px
+      "+pa -pa serve_home serve_away +pb -pb" 50px
+      "+m -m timer +s -s" 50px
+      "+s24 -s24 timer24 14s Re" 50px
+      "+af -af buzzer +bf -bf" 50px */
+      /* /1fr 1fr 1fr */
+      /* ; */
+  margin-top: 30px;
+}
+  
+.class_gametimer{
+  /* grid-area: center; */
+  grid-column-start:span 4;
+  color: white;
+  font-size: 60px;
+  text-align: center;
+  padding: 0;
+  /* margin: 20px; */
+  font-family: 'Electrolize', sans-serif;
+  /* margin-top: 5px;
+  margin-right: 25px;
+  margin-left: 25px; */
+  /* float: center; */
+}
+
+.class_triangle_right{
+  /* grid-area: right; */
+  grid-column-start:span 1;
+  /* visibility: hidden; */
+  /* width: 0; */
+  height: 0;
+  border-top: 25px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 25px solid transparent;
+  border-left: 20px solid orange;
+  padding: 0;
+  /* margin-left: 30px; */
+  margin-top: 10px;
+  background: black;
+  /* float: right; */
+  
+}
+  
+.class_triangle_left{
+  /* grid-area: left; */
+  grid-column-start:span 1;
+  /* visibility: hidden; */
+  /* width: 0; */
+  height: 0;
+  border-top: 25px solid transparent;
+  border-right: 20px solid orange;
+  border-bottom: 25px solid transparent;
+  border-left: 20px solid transparent;
+  padding: 0;
+  /* margin-right: 15px; */
+  /* margin-left:15px; */
+  margin-top: 10px;
+  background: black;
+  /* float: left; */
+}
+/* timer first line */
+
+/* timer second linn */
+.class_5foul{
+    height: 20px;
+    width: 20px;
+    /* margin: 2px; */
+    margin-left: auto;
+    margin-right: auto;
+    background-color: red;
+  }
+  
+  .class_foul_count{
+    height: 20px;
+    width: 20px;
+    /* margin: 2px; */
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+  }
+  
+  .class_point{
+    font-size: 40px;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    font-family: 'Electrolize', sans-serif;
+  }
+  
+  .class_24{
+    font-size: 40px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: normal;
+    color:white;
+    font-family: 'Electrolize', sans-serif;
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 7;
+    /* grid-area: time24d; */
+  }
+  
+  /* .btn-primary.rounded-circle.p-0{
+    font-size: 40px;
+  } */
+  
+  .class_up_btn{
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    /* grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 8;
+    grid-row-end: 9; */
+  }
+  
+  .class_minus_btn{
+    background: red;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    /* grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 8;
+    grid-row-end: 9; */
+  }
+  
+  .class_serve_r{
+      background: orange;
+      text-align: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 5px;
+  }
+  
+  .class_serve_l{
+      background: orange;
+      text-align: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 5px;
+  }
+  
+  .class_timer{
+    background: orange;
+    text-align: center;
+    height:40px; 
+    width:80px; 
+    border-radius:5px;
+  }
+  
+  .class_24s_plus_btn{
+    text-align: center;
+    height:40px; 
+    width:40px; 
+    border-radius:5px;
+  }
+  
+  .class_24s_minus_btn{
+    background: red;
+    text-align: center;
+    height:40px; 
+    width:40px; 
+    border-radius:5px;
+  }
+  
+  .class_24timer{
+    background: orange;
+    text-align: center;
+    height:40px; 
+    width:80px; 
+    border-radius:5px;
+  }
+  
+  .class_14s_btn{
+    text-align: center;
+    height:40px; 
+    width:40px; 
+    border-radius:5px;
+  }
+  
+  .class_reset24_btn{
+    background: red;
+    text-align: center;
+    height:40px; 
+    width:40px; 
+    border-radius:5px;
+  }
+  
+  .class_foul_plus_btn{
+    text-align: center;
+    height:40px; 
+    width:40px; 
+    border-radius:5px;
+  }
+  
+  .class_foul_minus_btn{
+    background: red;
+    text-align: center;
+    height:40px; 
+    width:40px; 
+    border-radius:5px;
+  }
+  
+  .class_buzzer{
+    background: orange;
+    text-align: center;
+    height:40px; 
+    width:80px; 
+    border-radius:5px;
+  }
+  
+  .class_foul_plus_btn{
+    text-align: center;
+    height:40px; 
+    width:40px; 
+    border-radius:5px;
+  }
+  
+  .class_foul_minus_btn{
+    text-align: center;
+    height:40px; 
+    width:40px; 
+    border-radius:5px;
+  }
+  
+  .class_menu{
+    grid-column-start: span 1;
+    text-align: center;
+    height:40px; 
+    width:80px; 
+    border-radius:5px;
+  }
+  
+  
+  
+  #id_a_point{
+    font-size: 40px;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    font-family: 'Electrolize', sans-serif;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 7;
+    /* grid-area: apd; */
+  }
+  
+  #id_b_point{
+    font-size: 40px;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    font-family: 'Electrolize', sans-serif;
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 7;
+    /* grid-area: bpd; */
+  }
+  
+  #Af5{
+    visibility: hidden;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  
+  #Af4{
+    visibility: hidden;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+  
+  #Af3{
+    visibility: hidden;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 5;
+  }
+  
+  #Af2{
+    visibility: hidden;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 5;
+    grid-row-end: 6;
+  }
+  
+  #Af1{
+    visibility: hidden;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 6;
+    grid-row-end: 7;
+  }
+  
+  #Bf5{
+    visibility: hidden;
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  
+  #Bf4{
+    visibility: hidden;
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+  
+  #Bf3{
+    visibility: hidden;
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row-start: 4;
+    grid-row-end: 5;
+  }
+  
+  #Bf2{
+    visibility: hidden;
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row-start: 5;
+    grid-row-end: 6;
+  }
+  
+  #Bf1{
+    visibility: hidden;
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row-start: 6;
+    grid-row-end: 7;
+  }
+  
+  #id_plus_h1p{
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 8;
+    grid-row-end: 9;
+  }
+  
+  #id_plus_a1p{
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 8;
+    grid-row-end: 9;
+  }
+  
+  #id_minus_h1p{
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 8;
+    grid-row-end: 9;
+  }
+  
+  #id_minus_a1p{
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row-start: 8;
+    grid-row-end: 9;
+  }
+  
+  #id_serve_home_btn{
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 8;
+    grid-row-end: 9;
+  }
+  
+  #id_serve_away_btn{
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 8;
+    grid-row-end: 9;
+  }
+  
+  #id_minute_plus{
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 10;
+    grid-row-end: 11;
+  }
+  
+  #id_minute_minuse{
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 10;
+    grid-row-end: 11;
+  }
+  
+  #id_gametimer_btn{
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 10;
+    grid-row-end: 11;
+  }
+  
+  #id_second_plus{
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 10;
+    grid-row-end: 11;
+  }
+  
+  #id_second_minuse{
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row-start: 10;
+    grid-row-end: 11;
+  }
+  
+  #id_24_plus{
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 12;
+    grid-row-end: 13;
+  }
+  
+  #id_24_minus{
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 12;
+    grid-row-end: 13;
+  }
+  
+  #id_24_btn{
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 12;
+    grid-row-end: 13;
+  }
+  
+  #id_14s_btn{
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 12;
+    grid-row-end: 13;
+  }
+  
+  #id_24_reset{
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row-start: 12;
+    grid-row-end: 13;
+  }
+  
+  #id_A_fplus{
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 14;
+    grid-row-end: 15;
+  }
+  
+  #id_A_fminuse{
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 14;
+    grid-row-end: 15;
+  }
+  
+  #id_buzzer_btn{
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 14;
+    grid-row-end: 15;
+  }
+  
+  #id_B_fplus{
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 14;
+    grid-row-end: 15;
+  }
+  
+  #id_B_fminuse{
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row-start: 14;
+    grid-row-end: 15;
+  }
+  
+  #id_menu{
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 16;
+    grid-row-end: 17;
+    
+    /* background-color: white;
+    width: 100%;
+    color:black;
+    font-size: 40px;
+    margin:5px; */
+  }
+  
+  .div-scroller {
+      display: block;
+      width: 100%;
+      height: 100%;
+      overflow: scroll;
+      -webkit-overflow-scrolling: touch;
+      -ms-overflow-style: none;
+      -ms-scroll-snap-type: mandatory;
+    }
+    .div-scroller::-webkit-scrollbar {
+      display: none;
+    }
+    .alert-dialog-content > .div-scroller {
+      /* border: 1px solid #f00; */
+      max-height: 100px;
+    }
+    
+    .mgr-10 {
+      margin-right: 20px;
+    }
